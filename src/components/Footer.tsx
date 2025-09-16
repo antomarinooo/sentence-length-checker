@@ -1,69 +1,73 @@
-import { Github, Mail } from 'lucide-react';
+import { Github, Instagram } from 'lucide-react';
+import { Button } from './ui/button';
 import { useLanguage } from './LanguageProvider';
 
 export function Footer() {
   const { t } = useLanguage();
 
   const handleGitHubClick = () => {
-    window.open('https://github.com/yourusername/sentence-analyzer', '_blank');
+    window.open('https://github.com/antomarinooo/', '_blank');
   };
 
-  const handleEmailClick = () => {
-    window.open('mailto:your.email@example.com?subject=Sentence Length Analyzer', '_blank');
+  const handleInstagramClick = () => {
+    window.open('https://www.instagram.com/fusefolio/', '_blank');
   };
 
   return (
-    <footer className="mt-16 lg:mt-24 pb-12 lg:pb-16">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+    <footer className="mt-12 lg:mt-16 pb-8 lg:pb-12">
+      <div className="max-w-4xl mx-auto px-6 sm:px-8">
         <div className="flex flex-col gap-8">
           {/* Main Footer Content */}
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start border-b border-border pb-8">
             {/* About Section */}
             <div className="flex-1 max-w-lg">
-              <h3 className="font-medium text-base mb-3">About this project</h3>
+              <h3 className="font-medium text-base mb-3">{t.footer.about}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                A simple, privacy-focused tool to identify overly long sentences in your text. 
-                All processing happens in your browser - no data is sent to servers.
+                {t.footer.description}
               </p>
               
               {/* Feature bullets */}
               <div className="flex flex-wrap gap-4 items-center">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full" />
-                  <span className="text-sm text-muted-foreground">Privacy-focused</span>
+                  <span className="text-sm text-muted-foreground">{t.footer.privacyFocused}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full" />
-                  <span className="text-sm text-muted-foreground">No data collection</span>
+                  <span className="text-sm text-muted-foreground">{t.footer.noDataCollection}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full" />
-                  <span className="text-sm text-muted-foreground">Client-side processing</span>
+                  <span className="text-sm text-muted-foreground">{t.footer.clientSideProcessing}</span>
                 </div>
               </div>
             </div>
 
             {/* Contact Section */}
             <div className="flex flex-col gap-4">
-              <h3 className="font-medium text-base">Contact</h3>
+              <h3 className="font-medium text-base">{t.footer.contact}</h3>
               <div className="flex flex-col gap-2">
                 {/* GitHub Button */}
-                <button
+                <Button
+                  variant="outline"
                   onClick={handleGitHubClick}
-                  className="flex items-center gap-2 px-3 py-2 text-sm bg-white border border-border rounded-lg hover:bg-gray-50 transition-colors text-left"
+                  className="justify-start gap-2 cursor-pointer"
+                  size="sm"
                 >
                   <Github className="h-4 w-4" />
-                  <span>View on GitHub</span>
-                </button>
+                  <span>{t.footer.github}</span>
+                </Button>
                 
-                {/* Email Button */}
-                <button
-                  onClick={handleEmailClick}
-                  className="flex items-center gap-2 px-3 py-2 text-sm bg-white border border-border rounded-lg hover:bg-gray-50 transition-colors text-left"
+                {/* Instagram Button */}
+                <Button
+                  variant="outline"
+                  onClick={handleInstagramClick}
+                  className="justify-start gap-2 cursor-pointer"
+                  size="sm"
                 >
-                  <Mail className="h-4 w-4" />
-                  <span>your.email@example.com</span>
-                </button>
+                  <Instagram className="h-4 w-4" />
+                  <span>{t.footer.instagram}</span>
+                </Button>
               </div>
             </div>
           </div>
@@ -71,10 +75,10 @@ export function Footer() {
           {/* Bottom Section */}
           <div className="flex flex-col gap-4">
             <p className="text-sm text-muted-foreground">
-              © 2025 Sentence Length Analyzer. Open source project.
+              {t.footer.copyright}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-              <span className="text-xs text-muted-foreground">Made with</span>
+              <span className="text-xs text-muted-foreground">{t.footer.madeWith}</span>
               <div className="flex gap-4 items-center">
                 <div className="flex items-center gap-1.5">
                   <svg className="h-4 w-4 text-muted-foreground" viewBox="0 0 24 24" fill="currentColor">
@@ -87,6 +91,25 @@ export function Footer() {
                     <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/>
                   </svg>
                   <span className="text-xs text-muted-foreground">Tailwind CSS</span>
+                </div>
+                {/* Shadcn credit block added as requested */}
+                <div className="inline-flex justify-start items-center gap-1.5">
+                  <div data-svg-wrapper className="relative">
+                    <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clipPath="url(#clip0_10_494)">
+                        <path d="M12.1875 8.30273L7.5 12.9902" stroke="#8B8B8B" strokeWidth="1.875" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M11.25 3.14648L2.34375 12.0527" stroke="#8B8B8B" strokeWidth="1.875" strokeLinecap="round" strokeLinejoin="round" />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_10_494">
+                          <rect width="15" height="15" fill="white" transform="translate(0 0.802734)" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </div>
+                  <div className="inline-flex flex-col justify-start items-start">
+                    <div className="justify-center text-xs text-muted-foreground font-normal font-['Inter'] leading-none">Shadcn UI</div>
+                  </div>
                 </div>
               </div>
             </div>
